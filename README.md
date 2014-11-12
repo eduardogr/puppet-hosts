@@ -75,7 +75,7 @@ Create hosts file entries as follows:
 
 ### Public classes
 
-* hosts: The main class used to interact with this module.
+* `hosts`: The main class used to interact with this module.
 
 ### Private classes
 
