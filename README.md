@@ -32,7 +32,7 @@ class { '::hosts' : }
 
 ## Usage
 
-### Ckasses
+### Classes
 
 Declare the class. There are a number of optional parameters whose defaults
 are listed below:
