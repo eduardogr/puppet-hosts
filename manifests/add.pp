@@ -4,30 +4,40 @@ define hosts::add (
     $aliases = undef,
 ) {
 
-    # Assembling the line for the hosts file.
-    if is_array( $aliases ) {
+    # Validating $ipaddr ($name) variable
+    unless ( is_string( $ipaddr ) ) {
+        fail("Error: IP Address ${ipaddr} does not look like an IP Address")
+    }
 
-        # $aliases is an array. Convert to space separated string.
-        $line = sprintf( '%-15s %s %s', $ipaddr, $fqdn, join( $aliases, ' ' ) )
+    # Validating $fqdn variable
+    unless ( is_string( $fqdn ) ) {
+        fail('Error: fqdn must be a string')
+    }
 
-    } elsif is_string ( $aliases ) {
+    # Validating $aliases variable
+    if ( is_array( $aliases ) or is_string( $aliases ) ) {
 
-        # $aliases is a string. Include it in the line.
-        $line = sprintf( '%-15s %s %s', $ipaddr, $fqdn, $aliases )
+        # arrays and strings are fine
+        $host_aliases = $aliases
+
+    } elsif ( $aliases == undef ) {
+
+        # Undef is fine (does nothing)
+        $host_aliases = undef
 
     } else {
 
-        # $aliases is undefined. Leave it out.
-        $line = sprintf( '%-15s %s', $ipaddr, $fqdn )
+        # Anything else is invalid
+        fail('Error: aliases should be a string or an array.')
 
     }
 
-    # Write the line to hosts file
-    file_line { $ipaddr :
-        ensure  => 'present',
-        path    => $hosts::hostsfile,
-        line    => $line,
-        match   => "^${ipaddr}[ \t]",
+    host { $ipaddr :
+        ensure          => 'present',
+        name            => $fqdn,
+        host_aliases    => $aliases,
+        ip              => $ipaddr,
+        target          => $hosts::hostsfile,
     }
 
 }

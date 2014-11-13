@@ -32,7 +32,7 @@ class { '::hosts' : }
 
 ## Usage
 
-### Ckasses
+### Classes
 
 Declare the class. There are a number of optional parameters whose defaults
 are listed below:
@@ -75,7 +75,7 @@ Create hosts file entries as follows:
 
 ### Public classes
 
-* hosts: The main class used to interact with this module.
+* `hosts`: The main class used to interact with this module.
 
 ### Private classes
 

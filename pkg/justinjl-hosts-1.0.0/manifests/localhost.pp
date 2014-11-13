@@ -21,6 +21,12 @@ class hosts::localhost {
             fqdn    => 'localhost.localdomain',
             aliases => [ 'localhost', 'ip6-localhost', 'ip6-loopback' ],
         }
+        ::hosts::add { 'fe00::0' :
+            fqdn    => 'ip6-localnet',
+        }
+        ::hosts::add { 'ff00::0' :
+            fqdn    => 'ip6-mcastprefix',
+        }
         ::hosts::add { 'ff02::1' :
             fqdn    => 'ip6-allnodes',
         }
@@ -31,3 +37,4 @@ class hosts::localhost {
     }
 
 }
+

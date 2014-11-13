@@ -25,11 +25,11 @@ class hosts::params {
         }
 
         'windows':  {
-            fail("Error: unsupported operating system.")
+            fail('Error: unsupported operating system.')
         }
-    
+
         default:    {
-            fail("Error: unsupported operating system. Please provide path to hosts file")
+            fail('Error: unsupported operating system. Please provide path to hosts file')
         }
 
     }

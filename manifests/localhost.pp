@@ -10,16 +10,16 @@ class hosts::localhost {
     # Do not add localhost entries if they have been disabled
     unless ( $hosts::localhost == false ) {
 
-        # Create entry for localhost
-        ::hosts::add { '127.0.0.1' :
-            fqdn    => 'localhost.localdomain',
-            aliases => 'localhost',
-        }
+#        # Create entry for localhost
+#        ::hosts::add { '127.0.0.1' :
+#            fqdn    => 'localhost.localdomain',
+#            aliases => 'localhost',
+#        }
 
         # Create entries for ipv6 localhost
         ::hosts::add { '::1' :
-            fqdn    => 'localhost.localdomain',
-            aliases => [ 'localhost', 'ip6-localhost', 'ip6-loopback' ],
+            fqdn    => 'localhost6.localdomain6',
+            aliases => [ 'localhost6', 'ip6-localhost', 'ip6-loopback' ],
         }
         ::hosts::add { 'fe00::0' :
             fqdn    => 'ip6-localnet',
