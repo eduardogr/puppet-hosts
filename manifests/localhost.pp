@@ -10,11 +10,11 @@ class hosts::localhost {
     # Do not add localhost entries if they have been disabled
     unless ( $hosts::localhost == false ) {
 
-#        # Create entry for localhost
-#        ::hosts::add { '127.0.0.1' :
-#            fqdn    => 'localhost.localdomain',
-#            aliases => 'localhost',
-#        }
+        # Create entry for localhost
+        ::hosts::add { '127.0.0.1' :
+            fqdn    => 'localhost.localdomain',
+            aliases => 'localhost',
+        }
 
         # Create entries for ipv6 localhost
         ::hosts::add { '::1' :

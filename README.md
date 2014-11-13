@@ -80,7 +80,6 @@ Create hosts file entries as follows:
 ### Private classes
 
 * `hosts::file`: Class to handle declare the file resource and set the ownership and permissions.
-* `hosts::header`: Class to add a "Managed by Puppet" header to the hosts file.
 * `hosts::localhost`: Class to add localhost entries to the hosts file.
 * `hosts::params`: Class to store default parameter values and determine OS specific values.
 * `hosts::primary`: Class to add hosts file entries for the primary interface (::ipaddress -> ::fqdn/::hostname).
