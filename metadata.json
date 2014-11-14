@@ -1,6 +1,6 @@
 {
   "name": "justinjl-hosts",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "justinjl",
   "summary": "Module for managing /etc/hosts",
   "license": "Apache 2.0",

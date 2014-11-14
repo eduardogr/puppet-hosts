@@ -7,6 +7,12 @@
 ################################################################################
 class hosts::file {
 
+    file { $hosts::hostsfile :
+        owner   => $hosts::owner,
+        group   => $hosts::group,
+        mode    => $hosts::mode,
+    }
+
     if ( $hosts::purge == true ) {
         resources { 'host' :
             purge   => true
